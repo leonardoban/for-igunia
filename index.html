@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1c1020">
+<title>For Igunia — My Lunea</title>
+<style>
+:root{--ink:#fff8f4;--muted:#e7cbd6;--pink:#ff9cbd;--rose:#e85d86;--wine:#321827;--gold:#f4d7a1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#170f1b;color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 18% 12%,#67344d 0,transparent 38%),radial-gradient(ellipse at 85% 42%,#39243f 0,transparent 42%),linear-gradient(145deg,#160f1c,#291522 58%,#120e18)}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.6;animation:twinkle 3s infinite ease-in-out alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.4)}}@keyframes float{50%{transform:translateY(-16px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{50%{box-shadow:0 0 38px #ff9cbd66}}
+header{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 22px;position:relative}
+.eyebrow{letter-spacing:.32em;text-transform:uppercase;font:11px Arial,sans-serif;color:var(--gold)}h1{font-size:clamp(54px,11vw,112px);line-height:.95;font-weight:400;margin:24px 0 18px;text-shadow:0 8px 40px #0008}.script{font-style:italic;color:var(--pink)}.intro{max-width:560px;margin:0 auto;color:var(--muted);font-size:19px;line-height:1.7}.scroll{position:absolute;bottom:28px;color:#dcb9c9;font:11px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+section{padding:90px 22px;max-width:980px;margin:auto}.section-tag{text-align:center;color:var(--gold);font:11px Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase}h2{text-align:center;font-size:clamp(34px,6vw,58px);font-weight:400;margin:16px 0 28px}.lead{text-align:center;max-width:650px;margin:0 auto 36px;color:var(--muted);line-height:1.8;font-size:17px}
+.panel{background:linear-gradient(145deg,#ffffff0d,#ffffff05);border:1px solid #ffffff20;border-radius:26px;padding:clamp(24px,5vw,52px);box-shadow:0 24px 80px #0003;backdrop-filter:blur(8px)}
+.poem{text-align:center;font-size:clamp(18px,2.5vw,23px);line-height:1.95;color:#fff0f4}.poem .accent{color:var(--pink);font-style:italic}
+.divider{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:28px auto}
+.music-box{text-align:center}.music-box p{color:var(--muted);line-height:1.7}audio{width:min(100%,440px);margin-top:12px;accent-color:var(--rose)}.hint{font:12px Arial,sans-serif;color:#c9aeb9}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}.game{padding:24px;border-radius:22px;background:#ffffff0a;border:1px solid #ffffff1b}.game h3{font-size:24px;font-weight:400;margin:0 0 10px}.game p{color:var(--muted);line-height:1.6;min-height:50px}.btn{border:1px solid #ffb6cd88;background:linear-gradient(135deg,#e85d86,#a83b68);color:white;padding:12px 19px;border-radius:999px;font:13px Arial,sans-serif;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.soft{background:#ffffff0c;border-color:#ffffff38}.game-result{min-height:32px;margin-top:14px;color:#ffd6e4;font-size:15px;line-height:1.5}
+.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}.tile{min-height:54px;border:1px solid #ffffff30;border-radius:12px;background:#ffffff0d;color:white;font-size:22px;cursor:pointer}.tile.revealed{background:#e85d8644;border-color:#ffb6cd}
+#heartField{height:150px;position:relative;overflow:hidden;border:1px solid #ffffff20;border-radius:14px;background:#ffffff08}.heart{position:absolute;border:0;background:none;font-size:26px;cursor:pointer;animation:float 1.5s infinite ease-in-out}
+.question{text-align:center}.question h2{margin-bottom:12px}.question .panel{max-width:680px;margin:auto}.choices{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;min-height:100px;margin-top:25px}.yes{font: bold 18px Arial,sans-serif;background:linear-gradient(135deg,#ff9cbd,#dc4777);border:0;border-radius:999px;padding:17px 38px;color:#391526;box-shadow:0 0 30px #ff9cbd55;cursor:pointer;transition:transform .25s}.no{font:14px Arial,sans-serif;color:#ffeaf1;background:#ffffff12;border:1px solid #ffffff55;border-radius:999px;padding:13px 25px;cursor:pointer}.final-message{display:none;margin:30px auto 0;max-width:520px;color:#ffe1eb;font-size:20px;line-height:1.7;animation:fadeUp .8s both}
+footer{text-align:center;padding:45px 20px 65px;color:#cbaeba;font-size:14px}footer .signature{font-size:24px;color:var(--pink);font-style:italic;margin-top:12px}
+.reveal{opacity:0;transform:translateY(20px);transition:.8s}.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<header>
+  <div>
+    <div class="eyebrow">A little universe made for you</div>
+    <h1>For <span class="script">Igunia</span></h1>
+    <p class="intro">If I could gather every little feeling I have for you and turn it into a place, I think it would look something like this.</p>
+    <div class="divider"></div>
+    <div class="script" style="font-size:25px">My Lunea</div>
+  </div>
+  <div class="scroll">A little further, my moon ↓</div>
+</header>
+
+<section class="reveal">
+  <div class="section-tag">A letter from my heart</div>
+  <h2>To my <span class="script">Lunea</span></h2>
+  <div class="panel poem">
+    Before I knew the sound of your laughter,<br>
+    I never knew a voice could feel like home.<br>
+    Then you arrived, so gentle and so lovely,<br>
+    And made the distant world feel less alone.<br><br>
+    If every star could hold one little promise,<br>
+    I'd ask them all to keep this one in sight:<br>
+    To meet you with a heart that's kind and patient,<br>
+    And choose you in the ordinary light.<br><br>
+    Not only in the dreams we build for someday,<br>
+    But in the little moments passing through:<br>
+    A song, a smile, a quiet evening talking,<br>
+    A thousand ways to say <span class="accent">I'm here for you.</span><br><br>
+    And if the moon should ask what makes it shining,<br>
+    I'd tell it there's a light it cannot see:<br>
+    A girl named Igunia, warm and full of wonder,<br>
+    Who made the world more beautiful to me.
+    <div class="divider"></div>
+    <span class="accent">With all my heart, Bachir</span>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-tag">A song for our little world</div>
+  <h2>Our <span class="script">song</span></h2>
+  <div class="panel music-box">
+    <p>I left a place for a song chosen by you — or one you want to sing for me.<br>I'll add my own music here, so this little corner can sound like us.</p>
+    <audio controls preload="metadata">
+      <source src="music/our-song.mp3" type="audio/mpeg">
+      Your browser does not support audio playback.
+    </audio>
+    <div class="hint">Add your MP3 as <b>music/our-song.mp3</b> before publishing</div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-tag">A few little things to play</div>
+  <h2>Just for <span class="script">fun</span></h2>
+  <p class="lead">Because love should have room for laughter, silly games, and tiny surprises too.</p>
+  <div class="games">
+    <div class="game">
+      <h3>Find the pairs</h3>
+      <p>Turn over the cards and find all four matching pairs. A tiny memory game for my favourite person.</p>
+      <div id="memory" class="memory-grid"></div>
+      <div class="game-result" id="memoryResult">Pairs found: 0 / 4</div>
+      <button class="btn soft" onclick="startMemory()">Shuffle again</button>
+    </div>
+    <div class="game">
+      <h3>Catch a little love</h3>
+      <p>Tap the floating hearts before they disappear. Every heart carries a little message.</p>
+      <div id="heartField"></div>
+      <div class="game-result" id="heartResult">Hearts caught: 0</div>
+      <button class="btn soft" onclick="spawnHeart()">Give me a heart</button>
+    </div>
+    <div class="game">
+      <h3>How well do you know us?</h3>
+      <p>A very serious quiz with one very unserious prize: another reminder that you're loved.</p>
+      <button class="btn" onclick="quiz()">Start the tiny quiz</button>
+      <div class="game-result" id="quizResult"></div>
+    </div>
+  </div>
+</section>
+
+<section class="question reveal" id="question">
+  <div class="section-tag">One little question</div>
+  <div class="panel">
+    <div style="font-size:34px">🌙</div>
+    <h2>Igunia, would you like to be <span class="script">my girlfriend?</span></h2>
+    <p class="lead" style="margin-bottom:10px">I don't want to rush your heart. I just want to ask you honestly, with all the care and affection I have for you.</p>
+    <div class="choices">
+      <button class="yes" id="yesBtn" onclick="sayYes()">YES</button>
+      <button class="no" id="noBtn" onclick="sayNo()">NO</button>
+    </div>
+    <div class="final-message" id="finalMessage">You just made me the happiest man. ❤️<br><br>Here's to choosing each other, learning each other, and building something beautiful — one day at a time.<br><span class="script">I love you, my Lunea.</span></div>
+    <div class="game-result" id="noMessage"></div>
+  </div>
+</section>
+<footer>
+  Made with care, a little code, and a very full heart.
+  <div class="signature">Bachir ♡ Igunia</div>
+</footer>
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<75;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';stars.appendChild(s)}
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const symbols=['🌙','🌹','💗','✨'];let first=null,lock=false,matches=0;
+function startMemory(){const deck=[...symbols,...symbols].sort(()=>Math.random()-.5);const board=document.getElementById('memory');board.innerHTML='';first=null;lock=false;matches=0;document.getElementById('memoryResult').textContent='Pairs found: 0 / 4';deck.forEach((v,i)=>{const b=document.createElement('button');b.className='tile';b.textContent='?';b.dataset.value=v;b.onclick=()=>{if(lock||b.classList.contains('revealed'))return;b.textContent=v;b.classList.add('revealed');if(!first){first=b;return}if(first.dataset.value===v){matches++;first=null;document.getElementById('memoryResult').textContent=`Pairs found: ${matches} / 4`;if(matches===4)document.getElementById('memoryResult').textContent='You found them all. Just like I found you. ❤️'}else{lock=true;const prev=first;first=null;setTimeout(()=>{prev.textContent='?';b.textContent='?';prev.classList.remove('revealed');b.classList.remove('revealed');lock=false},700)}};board.appendChild(b)})}
+startMemory();
+let caught=0;
+function spawnHeart(){const field=document.getElementById('heartField');const h=document.createElement('button');h.className='heart';h.textContent=['💗','💖','💕','❤️'][Math.floor(Math.random()*4)];h.style.left=(5+Math.random()*82)+'%';h.style.top=(12+Math.random()*65)+'%';h.onclick=()=>{caught++;document.getElementById('heartResult').textContent='Hearts caught: '+caught+' — each one is yours';h.remove()};field.appendChild(h);setTimeout(()=>h.remove(),2600)}
+document.getElementById('heartField').addEventListener('click',e=>{if(e.target.classList.contains('heart'))return;});
+function quiz(){const r=document.getElementById('quizResult');const q=[['What is your special nickname?',['My Lunea','My Sun','My Star'],0],['What do I want us to build?',['A sandcastle','Something beautiful together','A spaceship'],1],['What should you always remember?',['You are loved','You must be perfect','You must hurry'],0]];let score=0;let i=0;function ask(){if(i>=q.length){r.textContent=`You got ${score}/${q.length}. Your prize: a thousand hugs from me. ❤️`;return}const [question,opts,correct]=q[i];r.innerHTML=`${question}<br>`+opts.map((o,n)=>`<button class="btn soft" style="margin:6px 4px" onclick="answer(${n})">${o}</button>`).join('');window.answer=n=>{if(n===correct)score++;i++;ask()}}ask()}
+let noClicks=0;function sayNo(){noClicks++;const yes=document.getElementById('yesBtn');const scale=Math.min(1+noClicks*.42,5);yes.style.transform=`scale(${scale})`;document.getElementById('noMessage').textContent=['Are you sure, my moon?','The YES is getting a little bigger…','I made that button hard to ignore hhhhh'][Math.min(noClicks-1,2)];if(noClicks>=4){document.getElementById('noBtn').style.opacity='.45';document.getElementById('noMessage').textContent='No pressure at all — take all the time you need. ❤️'}}
+function sayYes(){document.getElementById('finalMessage').style.display='block';document.getElementById('noMessage').textContent='';document.querySelector('.choices').style.display='none';document.getElementById('finalMessage').scrollIntoView({behavior:'smooth',block:'center'});for(let i=0;i<24;i++){setTimeout(()=>{const h=document.createElement('div');h.textContent='💗';h.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:${Math.random()*100}vh;font-size:${18+Math.random()*22}px;pointer-events:none;z-index:10;transition:transform 2s,opacity 2s`;document.body.appendChild(h);requestAnimationFrame(()=>{h.style.transform='translateY(-100px) rotate(25deg)';h.style.opacity='0'});setTimeout(()=>h.remove(),2100)},i*45)}}
+</script>
+</body>
+</html>
